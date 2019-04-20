@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Senjata implements Parcelable {
-    private String nama, remarks, foto;
+    private String nama, remarks, foto, detil;
 
     public String getNama() {
         return nama;
@@ -35,6 +35,14 @@ public class Senjata implements Parcelable {
         this.foto = foto;
     }
 
+    public String getDetil() {
+        return detil;
+    }
+
+    public void setDetil(String detil) {
+        this.detil = detil;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -44,6 +52,7 @@ public class Senjata implements Parcelable {
         dest.writeString(this.nama);
         dest.writeString(this.remarks);
         dest.writeString(this.foto);
+        dest.writeString(this.detil);
     }
 
     public Senjata() {
@@ -52,6 +61,7 @@ public class Senjata implements Parcelable {
         this.nama = in.readString();
         this.remarks = in.readString();
         this.foto = in.readString();
+        this.detil = in.readString();
     }
 
     public static final Parcelable.Creator<Senjata> CREATOR = new Parcelable.Creator<Senjata>() {

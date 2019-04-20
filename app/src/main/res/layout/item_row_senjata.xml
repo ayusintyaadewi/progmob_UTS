@@ -13,6 +13,7 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         tools:src="@android:color/darker_gray"/>
     <LinearLayout
+        android:id="@+id/klik_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/img_item_photo"

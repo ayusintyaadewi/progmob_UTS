@@ -1,13 +1,16 @@
 package com.example.asus.senjatakhasindonesia;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +43,7 @@ public class CardViewSenjataAdapter extends RecyclerView.Adapter<CardViewSenjata
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CardViewViewHolder cardViewViewHolder, int i) {
+    public void onBindViewHolder(@NonNull CardViewViewHolder cardViewViewHolder, final int i) {
         Senjata p = getListSenjata().get(i);
         Glide.with(context)
                 .load(p.getFoto())
@@ -61,6 +64,28 @@ public class CardViewSenjataAdapter extends RecyclerView.Adapter<CardViewSenjata
             }
         }));
 
+        cardViewViewHolder.imgPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent s = new Intent(context.getApplicationContext(), MoveToDetail.class);
+                s.putExtra("nama", getListSenjata().get(i).getNama());
+                s.putExtra("detail", getListSenjata().get(i).getDetil());
+                s.putExtra("image", getListSenjata().get(i). getFoto());
+                context.startActivity(s);
+            }
+        });
+
+        cardViewViewHolder.tulisan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent s = new Intent(context.getApplicationContext(), MoveToDetail.class);
+                s.putExtra("nama", getListSenjata().get(i).getNama());
+                s.putExtra("detail", getListSenjata().get(i).getDetil());
+                s.putExtra("image", getListSenjata().get(i). getFoto());
+                context.startActivity(s);
+            }
+        });
+
     }
 
     @Override
@@ -72,6 +97,8 @@ public class CardViewSenjataAdapter extends RecyclerView.Adapter<CardViewSenjata
         ImageView imgPhoto;
         TextView tvName, tvRemarks;
         Button btnFavorite, btnShare;
+        RelativeLayout tulisan;
+
 
         CardViewViewHolder(View itemView) {
             super(itemView);
@@ -80,6 +107,8 @@ public class CardViewSenjataAdapter extends RecyclerView.Adapter<CardViewSenjata
             tvRemarks = itemView.findViewById(R.id.tv_item_remarks);
             btnFavorite = itemView.findViewById(R.id.btn_set_favorite);
             btnShare = itemView.findViewById(R.id.btn_set_share);
+            tulisan = itemView.findViewById(R.id.detaill);
+
         }
     }
 }

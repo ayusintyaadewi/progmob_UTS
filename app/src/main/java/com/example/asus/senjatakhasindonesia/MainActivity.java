@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         list = new ArrayList<>();
 
         if (savedInstanceState == null) {
-            setActionBarTitle("Mode List");
+            setActionBarTitle("Senjata Khas Indonesia");
             list.addAll(SenjataData.getListData());
             showRecyclerList();
             mode = R.id.action_list;
@@ -107,17 +107,17 @@ public class MainActivity extends AppCompatActivity {
         String title = null;
         switch (selectedMode) {
             case R.id.action_list:
-                title = "Mode List";
+                title = "Senjata Khas Indonesia";
                 showRecyclerList();
                 break;
 
             case R.id.action_grid:
-                title = "Mode Grid";
+                title = "Senjata Khas Indonesia";
                 showRecyclerGrid();
                 break;
 
             case R.id.action_cardview:
-                title = "Mode CardView";
+                title = "Senjata Khas Indonesia";
                 showRecyclerCardView();
                 break;
         }
@@ -132,73 +132,4 @@ public class MainActivity extends AppCompatActivity {
         outState.putParcelableArrayList(STATE_LIST, list);
         outState.putInt(STATE_MODE, mode);
     }
-
-//    private RecyclerView rvCategory;
-//    private ArrayList<Senjata> list = new ArrayList<>();
-//    private String title = "Mode List";
-//    final String STATE_TITLE = "state_string";
-//    final String STATE_LIST = "state_list";
-//    final String STATE_MODE = "state_mode";
-//    int mode;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//        rvCategory = findViewById(R.id.rv_category);
-//        rvCategory.setHasFixedSize(true);
-//
-//        list.addAll(SenjataData.getListData());
-//        showRecyclerList();
-//    }
-//
-//    private void showRecyclerList(){
-//        rvCategory.setLayoutManager(new LinearLayoutManager(this));
-//        ListSenjataAdapter listSenjataAdapter = new ListSenjataAdapter(this);
-//        listSenjataAdapter.setListSenjata(list);
-//        rvCategory.setAdapter(listSenjataAdapter);
-//    }
-//
-//    private void showRecyclerGrid(){
-//        rvCategory.setLayoutManager(new GridLayoutManager(this, 2));
-//        GridSenjataAdapter gridSenjataAdapter = new GridSenjataAdapter(this);
-//        gridSenjataAdapter.setListSenjata(list);
-//        rvCategory.setAdapter(gridSenjataAdapter);
-//    }
-//
-//    private void showRecyclerCardView(){
-//        rvCategory.setLayoutManager(new LinearLayoutManager(this));
-//        CardViewSenjataAdapter cardViewSenjataAdapter = new CardViewSenjataAdapter(this);
-//        cardViewSenjataAdapter.setListSenjata(list);
-//        rvCategory.setAdapter(cardViewSenjataAdapter);
-//    }
-//
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()){
-//            case R.id.action_list:
-//                setActionBarTitle("Mode List");;
-//                showRecyclerList();
-//                break;
-//            case R.id.action_grid:
-//                setActionBarTitle("Mode Grid");
-//                showRecyclerGrid();
-//                break;
-//            case R.id.action_cardview:
-//                setActionBarTitle("Mode CardView");
-//                showRecyclerCardView();
-//                break;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-//
-//    private void setActionBarTitle(String title){
-//        getSupportActionBar().setTitle(title);
-//    }
 }

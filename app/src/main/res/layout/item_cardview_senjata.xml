@@ -12,6 +12,7 @@
     android:layout_marginRight="8dp"
     card_view:cardCornerRadius="4dp">
     <RelativeLayout
+        android:id="@+id/detaill"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:padding="8dp">
